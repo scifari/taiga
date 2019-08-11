@@ -1,0 +1,865 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>Version 0.9: Webification</title>
+<meta http-equiv="Expires" content="Sun, 01 Nov 2015 14:24:25 +0000">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Webification">
+<meta name="generator" content="xml2rfc v1.34 (http://xml.resource.org/)">
+<style type='text/css'><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style>
+</head>
+<body>
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
+<tr><td class="header">Version 0.9</td><td class="header">w10n.org</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">December 21, 2013</td></tr>
+</table></td></tr></table>
+<h1><br />Webification</h1>
+<a name="toc"></a><br /><hr />
+<h1>Table of Contents</h1>
+<p class="toc">
+<a href="#anchor1">1.</a>&nbsp;
+Introduction<br />
+<a href="#anchor2">2.</a>&nbsp;
+Abstract Tree View<br />
+<a href="#anchor3">3.</a>&nbsp;
+URL Syntax<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">3.1.</a>&nbsp;
+Identifier<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor5">3.1.1.</a>&nbsp;
+Node<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor6">3.1.2.</a>&nbsp;
+Leaf<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor7">3.2.</a>&nbsp;
+Query String<br />
+<a href="#anchor8">4.</a>&nbsp;
+HTTP Request<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor9">4.1.</a>&nbsp;
+GET Request - Read<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor10">4.2.</a>&nbsp;
+PUT Request - Write<br />
+<a href="#anchor11">5.</a>&nbsp;
+HTTP Response<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor12">5.1.</a>&nbsp;
+Node<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor13">5.1.1.</a>&nbsp;
+Meta<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor19">5.1.2.</a>&nbsp;
+Data<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor20">5.2.</a>&nbsp;
+Leaf<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor21">5.2.1.</a>&nbsp;
+Meta<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor25">5.2.2.</a>&nbsp;
+Data<br />
+<a href="#anchor27">6.</a>&nbsp;
+Webification Type<br />
+<a href="#rfc.references1">7.</a>&nbsp;
+References<br />
+<a href="#anchor29">Appendix&nbsp;A.</a>&nbsp;
+Copyrights<br />
+<a href="#rfc.authors">&#167;</a>&nbsp;
+Author's Address<br />
+</p>
+<br clear="all" />
+
+<a name="anchor1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1"></a><h1>1.&nbsp;
+Introduction</h1>
+
+<p>
+This open specification defines a common way to expose data stores
+(composite files, databases, data models, remote services, etc.)
+on the web platform. The core idea of webification is to make
+inner components of a data store directly addressable and accessible
+via well-defined and meaningful URLs.
+
+</p>
+<p>
+The word "webification" and its numeronym "w10n" will be used interchangeably
+in the discussion below.
+
+</p>
+<a name="anchor2"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2"></a><h1>2.&nbsp;
+Abstract Tree View</h1>
+
+<p>
+W10n holds a simple abstract tree view for a data store.
+In this tree, there are two types of entities (inner components):
+(1) node, which can contain sub-nodes and leaves.
+(2) leaf, which can only belong to one parent node and can hold data.
+Both node and leaf may have attributes. An attribute is not considered
+as either leaf or node for simplicity. The tree root is a node.
+
+</p>
+<p>
+Furthermore a node or leaf must have a name.
+The name of the tree root is "", namely, an empty string.
+
+</p>
+<p>
+The full name of a node or leaf is constructed by concatenating
+names of all ancestral nodes and its name using forward slash "/"
+as the separator. Thus the full name of the root is "", an empty string, too.
+And the full name of a non-root entity x, node or leaf, is
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+""/x1/x2/.../xn/x
+</pre></div>
+<p>
+or equivalently
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+/x1/x2/.../xn/x
+</pre></div>
+<p>
+in which "", x1, x2, ..., xn are names of its ancestral nodes.
+
+</p>
+<p>
+Sometimes, it is useful to combine several nodes and/or leaves
+into a virtual node. Name of such an entity can be formed by
+concatenating names of concerned entities using comma
+inside a pair of curly brackets '{' and '}'. For example,
+a virtual node constructed from following three nodes or leaves:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+/x1/x2/x3/.../xn/x
+</pre></div><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+/y1/y2/y3/.../ym/y
+</pre></div><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+/z1/z2/z3/.../zl/z
+</pre></div>
+<p>
+will have a fullname as
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+{/x1/x2/x3.../xn/x,/y1/y2/y3/.../ym/y,/z1/z2/z3/.../zl/z}
+</pre></div>
+<p>
+In case x1 = y1 = z1 and x2 = y2 = z2, the fullname
+can be equivalently expressed as
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+/x1/x2/{x3/.../xn/x,y3/.../ym/y,z3/.../zl/z}
+</pre></div>
+<p>
+For a node, meta information is available. It contains node name,
+a list of attributes, a list of sub-nodes and a list of leaves.
+
+</p>
+<p>
+For a leaf, both meta and data information are available.
+The meta information contains leaf name and a list of attributes.
+The data information can be all or part of data that the leaf holds.
+
+</p>
+<a name="anchor3"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3"></a><h1>3.&nbsp;
+URL Syntax</h1>
+
+<p>
+A data store on an HTTP server has a URL like
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+http://host:port/path
+</pre></div>
+<p>
+To address its inner components directly, an extended URL syntax
+can be introduced
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+http://host:port/path""identifier?query_string
+                     ^^\_____________________/
+                     ||          |
+                     ||          |
+                     ||      URL extension
+                empty string
+</pre></div>
+<p>
+in which an empty string "" separates the "standard" resource URL from
+the extension. Within the extension, the identifier defines what component
+to expose and the query_string dictates how to expose.
+
+</p>
+<a name="anchor4"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1"></a><h2>3.1.&nbsp;
+Identifier</h2>
+
+<a name="anchor5"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.1"></a><h3>3.1.1.&nbsp;
+Node</h3>
+
+<p>
+The meta information of node x is identified by identifier
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+/x1/x2/.../xn/x/
+</pre></div>
+<p>
+which is, in fact, an empty string "" prefixed by the node's full name
+using separator "/", i.e.,
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+""/x1/x2/.../xn/x/""
+</pre></div>
+<p>
+The data information of node x is currently not defined.
+
+</p>
+<a name="anchor6"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.2"></a><h3>3.1.2.&nbsp;
+Leaf</h3>
+
+<p>
+The meta information of leaf x is identified by identifier
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+/x1/x2/.../xn/x/
+</pre></div>
+<p>
+which is, in fact, an empty string "" prefixed by the leaf's full name
+using separator "/", i.e.,
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+""/x1/x2/.../xn/x/""
+</pre></div>
+<p>
+The data information of leaf x is identified by identifier
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+/x1/x2/.../xn/x[selector]
+</pre></div>
+<p>
+in which selector specifies a portion of the data. If selector
+is an empty string, it means the entire data.
+
+</p>
+<p>
+The exact syntax of a selector depends on the w10n type involved.
+(see Section 6 below for more about w10n type).
+
+</p>
+<a name="anchor7"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2"></a><h2>3.2.&nbsp;
+Query String</h2>
+
+<p>
+The query_string contains parameters of name-value pairs, used to
+direct server actions. The following parameters are currently defined:
+
+</p>
+<p>
+(a) output -- value is a string specifying format of HTTP response:
+one of json, html, raw, etc.
+
+</p>
+<p>
+(b) callback -- value is a string specifying a JavaScript function name
+used to wrap HTTP response in JSONP form, if value of parameter "output"
+is json.
+
+</p>
+<p>
+(c) recache -- no value. If present, response cache must be refreshed.
+
+</p>
+<p>
+(d) flatten -- no value. If present, multi-dimensional array in response
+is flattened.
+
+</p>
+<p>
+(e) traverse -- no value. If present, all sub-nodes are traversed.
+
+</p>
+<p>
+Please note neither parameter name nor its value is case-sensitive.
+
+</p>
+<a name="anchor8"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4"></a><h1>4.&nbsp;
+HTTP Request</h1>
+
+<p>
+Depending on the HTTP method used, an HTTP request with a w10n URL
+as defined in Section 3 above can be a "w10n read" or a "w10n write".
+
+</p>
+<a name="anchor9"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.1"></a><h2>4.1.&nbsp;
+GET Request - Read</h2>
+
+<p>
+In a GET request, URL is
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+http://host:port/path""identifier?query_string
+</pre></div>
+<p>
+and message body is absent. Such a request retrieves (reads)
+meta or data information for a node or leaf identified by the URL.
+
+</p>
+<a name="anchor10"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.2"></a><h2>4.2.&nbsp;
+PUT Request - Write</h2>
+
+<p>
+In a PUT request, URL is
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+http://host:port/path""identifier?query_string
+</pre></div>
+<p>
+and message body contains data. Such a request saves data (writes) to
+a leaf identified by the URL.
+
+</p>
+<a name="anchor11"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5"></a><h1>5.&nbsp;
+HTTP Response</h1>
+
+<p>
+At minimum, a w10n service must be able to respond in JSON format
+for any valid URL containing a meta information identifier,
+which always ends with a "/".
+
+</p>
+<p>
+For the convenience of our discussion, only JSON format is used below.
+
+</p>
+<a name="anchor12"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1"></a><h2>5.1.&nbsp;
+Node</h2>
+
+<p>
+As stated in Section 3 above, currently only meta information identifier
+is defined for a node.
+
+</p>
+<a name="anchor13"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1.1"></a><h3>5.1.1.&nbsp;
+Meta</h3>
+
+<p>
+Response for meta information of a node is an object,
+consisting of members with pre-defined names:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+{
+    "name": string,
+    "attributes": [...],
+    "nodes": [...],
+    "leaves": [...],
+    "w10n": [...]
+}
+</pre></div>
+<p>
+Currently only five (5) members are allowed. All members, except "attributes",
+are mandatory.
+
+</p>
+<a name="anchor14"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1.1.1"></a><h3>5.1.1.1.&nbsp;
+"name"</h3>
+
+<p>
+Its value is a string, naming the node.
+
+</p>
+<a name="anchor15"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1.1.2"></a><h3>5.1.1.2.&nbsp;
+"attributes"</h3>
+
+<p>
+Its value is an array of zero (0) or more objects:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+[
+    {
+        "name": string,
+        "value": ...
+    },
+    {
+        "name": string,
+        "value": ...
+    },
+    ...
+]
+</pre></div>
+<p>
+Each object denotes an attribute
+and has two (2) and only two members: "name" and "value".
+
+</p>
+<a name="anchor16"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1.1.3"></a><h3>5.1.1.3.&nbsp;
+"nodes"</h3>
+
+<p>
+Its value is an array of zero (0) or more objects:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+[
+    {
+        "name": string,
+        ...
+    },
+    {
+        "name": string,
+        ...
+    },
+    ...
+]
+</pre></div>
+<p>
+Each object denotes a sub-node and, at minimum, contains member "name"
+with name of the sub-node as its value.
+
+</p>
+<p>
+If there are a large number of sub-nodes and their names follow
+a common pattern, they can be represented by a single object
+that uses the pattern string plus a pre-defined prefix as its name.
+
+</p>
+<a name="anchor17"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1.1.4"></a><h3>5.1.1.4.&nbsp;
+"leaves"</h3>
+
+<p>
+Its value is an array of zero (0) or more objects:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+[
+    {
+        "name": string,
+        ...
+    },
+    {
+        "name": string,
+        ...
+    },
+    ...
+]
+</pre></div>
+<p>
+Each object denotes a leaf and, at minimum, contains member "name"
+with name of the leaf as its value.
+
+</p>
+<p>
+If there are a large number of leaves and their names follow
+a common pattern, they can be represented by a single object
+that uses the pattern string plus a pre-defined prefix as its name.
+
+</p>
+<a name="anchor18"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1.1.5"></a><h3>5.1.1.5.&nbsp;
+"w10n"</h3>
+
+<p>
+Its value is an array of five (5) objects:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+[
+    {
+        "name": "spec",
+        "value": string
+    },
+    {
+        "name": "application",
+        "value": string
+    },
+    {
+        "name": "type",
+        "value": string
+    },
+    {
+        "name": "path",
+        "value": string
+    },
+    {
+        "name": "identifier",
+        "value": string
+    }
+]
+</pre></div>
+<p>
+Each object has two (2) and only two members, namely, "name" and "value".
+Furthermore, value for member "name" is pre-defined and value for member "value"
+contains respective information such as
+version of w10n specification, name and version of application,
+webification type, date store path and node meta identifier.
+
+</p>
+<a name="anchor19"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1.2"></a><h3>5.1.2.&nbsp;
+Data</h3>
+
+<p>
+Currently not defined.
+
+</p>
+<a name="anchor20"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.2"></a><h2>5.2.&nbsp;
+Leaf</h2>
+
+<p>
+As stated in Section 3 above, both meta and data information identifiers
+are defined for a leaf.
+
+</p>
+<a name="anchor21"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.2.1"></a><h3>5.2.1.&nbsp;
+Meta</h3>
+
+<p>
+Response for meta information of a leaf is an object,
+consisting of members with pre-defined names:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+{
+    "name": string,
+    "attributes": [...],
+    ...,
+    "w10n": [...]
+}
+</pre></div>
+<p>
+There can be more members depending on w10n type.
+
+</p>
+<p>
+Member "name" and "w10n" are mandatory. Member "attributes" is optional.
+
+</p>
+<a name="anchor22"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.2.1.1"></a><h3>5.2.1.1.&nbsp;
+"name"</h3>
+
+<p>
+Its value is a string, naming the leaf.
+
+</p>
+<a name="anchor23"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.2.1.2"></a><h3>5.2.1.2.&nbsp;
+"attributes"</h3>
+
+<p>
+Its value is an array of zero (0) or more objects:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+[
+    {
+        "name": string,
+        "value": ...
+    },
+    {
+        "name": string,
+        "value": ...
+    },
+    ...
+]
+</pre></div>
+<p>
+Each object denotes an attribute
+and has two (2) and only two members: "name" and "value".
+
+</p>
+<a name="anchor24"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.2.1.3"></a><h3>5.2.1.3.&nbsp;
+"w10n"</h3>
+
+<p>
+Its value is an array of five (5) objects:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+[
+    {
+        "name": "spec",
+        "value": string
+    },
+    {
+        "name": "application",
+        "value": string
+    },
+    {
+        "name": "type",
+        "value": string
+    },
+    {
+        "name": "path",
+        "value": string
+    },
+    {
+        "name": "identifier",
+        "value": string
+    }
+]
+</pre></div>
+<p>
+Each object has two (2) and only two members, namely, "name" and "value".
+Furthermore, value for member "name" is pre-defined and value for member "value"
+contains respective information such as
+version of w10n specification, name and version of application,
+webification type, date store path and leaf meta identifier.
+
+</p>
+<a name="anchor25"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.2.2"></a><h3>5.2.2.&nbsp;
+Data</h3>
+
+<p>
+Response of a URL with data information identifier may be
+in different formats: json, raw, etc. depending on w10n type
+and the value of parameter "output" in query_string.
+
+</p>
+<a name="anchor26"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.2.2.1"></a><h3>5.2.2.1.&nbsp;
+JSON</h3>
+
+<p>
+A JSON response for leaf data is a JSON object:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+{
+    "name": string,
+    "type": string,
+    "attributes": [...],
+    "data": ...,
+    ...,
+    "w10n": [...]
+}
+</pre></div>
+<p>
+which is similar to that of 5.2.1, but has additional members
+"type" and "data".
+
+</p>
+<a name="anchor27"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.6"></a><h1>6.&nbsp;
+Webification Type</h1>
+
+<p>
+For the same data store, there may be more than one way to webify it.
+Each way can be designated using a string, called w10n type.
+
+</p>
+<p>
+To avoid potential conflict, this spec uses the following
+convention to assign w10n type:
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+major.minor
+</pre></div>
+<p>
+where major is a string about store type and minor a string about
+the particular way of webifying. The separator is ".", a period.
+
+</p>
+<p>
+Furthermore, an experimental w10n type must be prefixed with "x" using
+"." as the separator, such as
+
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+x.major.minor
+</pre></div>
+<p>
+W10n type is always returned as element "type" in member "w10n"
+in a JSON response for meta or data information of an entity (node or leaf).
+
+</p>
+<a name="rfc.references1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h1>7.&nbsp;References</h1>
+<table width="99%" border="0">
+<tr><td class="author-text" valign="top">1</td>
+<td class="author-text">RFC 2616, &ldquo;Hypertext Transfer Protocol -- HTTP/1.1.&rdquo;</td></tr>
+<tr><td class="author-text" valign="top">2</td>
+<td class="author-text">RFC 4627, &ldquo;The application/json Media Type for JavaScript Object Notation (JSON).&rdquo;</td></tr>
+<tr><td class="author-text" valign="top">3</td>
+<td class="author-text">RFC 3986, &ldquo;Uniform Resource Identifier (URI): Generic Syntax.&rdquo;</td></tr>
+</table>
+
+<a name="anchor29"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.A"></a><h1>Appendix A.&nbsp;
+Copyrights</h1>
+
+<p>Copyright &copy; 2001 &ndash; 2013 w10n.org
+</p>
+<p>Hold harmless the author, and any lawful use is allowed.
+</p>
+<a name="rfc.authors"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h1>Author's Address</h1>
+<table width="99%" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">spec@w10n.org</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">w10n.org</td></tr>
+</table>
+</body></html>
