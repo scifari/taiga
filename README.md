@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Taiga is a web application server that bundles Webification for Science (w10n-sci) software packages, such as [Pomegranate](https://github.com/scifari/pomegranate), for easy and efficient use of large and complex data in various formats (e.g., HDF4/5 and NetCDF, etc.)
+Taiga is a web application server that bundles Webification (w10n) software packages, such as [Pomegranate](https://github.com/scifari/pomegranate), for easy and efficient use of large and complex data in various formats (e.g., HDF4/5 and NetCDF, etc.)
 
 ## Install
 
