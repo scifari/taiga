@@ -6,9 +6,12 @@ Taiga is a web application server that bundles Webification (w10n) software pack
 
 ## Installation
 
+### Use docker image
 The easiest way to install Taiga is to use a docker image, which is available at
 
 https://hub.docker.com/r/scifari/taiga
+
+### Use release tar ball
 
 On CentOS or similar Linux distributions, you can check out or download most recent release from
 
