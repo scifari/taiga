@@ -31,4 +31,33 @@ where `${myPort}` and `${myDataDirectory}` must be replaced by real values.
 
 ## Quick Start
 
-Please read [Use W10n store](./doc/w10n.md) and [Use w10n-sci store](./doc/w10n-sci.md)
+After a successful install of Taiga,
+one should be able to access w10n-sci web service,
+via URLs in declarative style, using any http-aware client.
+
+Two types of data stores are webified through Taiga:
+
+* Directories on host's file system.
+  Please check [use w10n store](./doc/w10n.md) for detailed URL syntax.
+* Data files in HDF4/5 and NetCDF.
+  Please check [use w10n-sci store](./doc/w10n-sci.md) for detailed URL syntax.
+
+### A simple browsing GUI
+
+Installed with Taiga is a simple html-based GUI,
+that one can use to browse through w10n entities, namely,
+directories and groups as nodes, files and arrays as leaves, etc.
+
+Shown below are screenshots that illustrate this simple GUI,
+using MillionSoundSample as an example. Please check [this doc](./doc)
+for how to load MillionSoundSample data tarball to Taiga.
+
+Assuming Taiga is started on `18080` of `localhost`, point browser to
+`http://localhost:18080`, one should be able to see a `Welcome` page as
+
+![page top](./figure/0-top.jpg)
+
+Click on link `/data`, a page with a list of directories will be shown.
+One directory is `MillionSongSample`.
+
+![page data dir](./figure/1-data-dir.jpg)
