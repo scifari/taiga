@@ -200,3 +200,7 @@ http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/{se
 ```
 
 [link](http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/{segments_timbre,segments_pitches,@}/[0<segments_timbre<=1,segments_pitches==1.0]?output=nc)
+
+### Further Reading
+
+Please check [use w10n](../../doc/w10n/usage.md) for w10n of file system directory as a data store. 
