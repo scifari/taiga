@@ -22,22 +22,26 @@ then install and configure as, e.g.,
 ```
 $ mkdir  ./tool
 $ cd ./tool
-$ wget https://raw.githubusercontent.com/scifari/taiga/master/release/taiga-2.0.4p8-linux-x86_64.centos-7.5.1804-a.tar.gz
-$ tar zxf ./taiga-2.0.4p8-linux-x86_64.centos-7.5.1804-a.tar.gz
-$ ./taiga-2.0.4p8-linux-x86_64.centos-7.5.1804-a/bin/taiga-service config --port ${myPort} --dataDirectory ${myDataDirectory}
-$ ./taiga-2.0.4p8-linux-x86_64.centos-7.5.1804-a/bin/taiga-service start -f 9
+$ wget https://raw.githubusercontent.com/scifari/taiga/master/release/taiga-2.0.4p9-linux-x86_64.centos-7.5.1804-a.tar.gz
+$ tar zxf ./taiga-2.0.4p9-linux-x86_64.centos-7.5.1804-a.tar.gz
+$ ./taiga-2.0.4p9-linux-x86_64.centos-7.5.1804-a/bin/taiga-service config --port ${myPort} --dataDirectory ${myDataDirectory}
+$ ./taiga-2.0.4p9-linux-x86_64.centos-7.5.1804-a/bin/taiga-service start -f 9
 ```
 where `${myPort}` and `${myDataDirectory}` must be replaced by real values.
 
 ## Quick Start
 
-Installed with Taiga is a simple html-based GUI.
+Installed with Taiga is a simple HTML-based GUI.
 One can use it to quickly browse through w10n entities
 (directories and groups as nodes, files and arrays as leaves, etc.)
 
+Note: If you are interested in advanced use of w10n APIs,
+please check [Use W10n Store](./doc/w10n/usage.md) and
+[Use W10n-Sci Store](./doc/w10n-sci/usage.md).
+
 Shown below are screenshots that illustrate this simple GUI,
-using MillionSoundSample as an example. Please check [this doc](./doc)
-for instruction of loading MillionSoundSample tarball to Taiga.
+using MillionSoundSample as an example. Please check [this doc](./data)
+for an instruction of loading MillionSoundSample tarball to Taiga.
 
 Assuming Taiga is started on port `18080` of `localhost`, point browser to
 `http://localhost:18080`, one should be able to see a `Welcome` page:
@@ -64,30 +68,29 @@ with levels properly indented.
 
 ![page h5 file](./figure/3-h5-file.jpg)
 
-On this page, a w10n node is visually identifiable
+On this page, w10n node is visually identifiable
 by folder icon ![folder icon](./figure/dir.gif),
-and a w10n leaf by file icon ![file icon](./figure/generic.gif).
+and w10n leaf by file icon ![file icon](./figure/generic.gif).
 For either w10n node or leaf,
 a "toggleble" download icon ![arrow down](./figure/arrow_down.png)
-is displayed to its right side, providing links for direct access of `meta` info
-in JSON & HTML and `data` info in JSON, big/little endian binary and other formats.
+is displayed to its right, providing links for direct access of `meta` info
+in JSON or HTML, and `data` info in JSON, big/little endian binary and other formats.
 There is also a *toggleable* blue string "ATTRIBUTES",
-below the name of a node or leaf, that one can click on
+below the name of a node or leaf, that can be clicked on
 to show/hide attributes of the w10n entity.
 Value inside a pair of parenthesis is the number of attributes.
 
 Furthermore, for a w10n leaf,
-information about array type, dimension and size
-is also displayed.
+information about array type and shape is also displayed.
 
 ![page h5 file more](./figure/5-h5-file-more-cropped.jpg)
 
 By default, the entire tree is traversed.
-One can toggle a clickable string (Expanded View/Collapsed View) at page top next to "Parent" link
+One can toggle on a clickable string (Expanded View/Collapsed View) at page top next to "Parent URL" link
 to display the tree in one level or all levels.
 
 ![page h5 file collapsed](./figure/6-h5-file-collapsed.jpg)
 
-Though this simple html-based GUI is convenient for exploring w10n entities,
+Though this simple HTML-based GUI is convenient for exploring w10n entities,
 it does not demonstrate the full power of w10n. Please read 
-[Use w10n store](./doc/w10n.md) and [Use w10n-sci store](./doc/w10n-sci.md)
+[Use W10n Store](./doc/w10n/usage.md) and [Use W10n-Sci Store](./doc/w10n-sci/usage.md) for advanced use.
