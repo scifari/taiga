@@ -93,4 +93,4 @@ to display the tree in one level or all levels.
 
 Though this simple HTML-based GUI is convenient for exploring w10n entities,
 it does not demonstrate the full power of w10n. Please read 
-[Use w10n store](./doc/w10n/usage.md) and [Use w10n-sci store](./doc/w10n-sci/usage.md) for advanced use.
+[Use W10n Store](./doc/w10n/usage.md) and [Use W10n-Sci Store](./doc/w10n-sci/usage.md) for advanced use.
