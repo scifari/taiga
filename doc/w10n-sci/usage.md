@@ -9,7 +9,7 @@ Scifari.org &copy; 2011 - 2019
 such as HDF4/5 and NetCDF. It uses meaningful and user-friendly URLs to address store inner components
 and make them directly accessible through self-describing RESTful web service.
 
-W10n virtaulizes an arbitrary data store as a tree, in which two types of entities exist: **node** and **leaf**.
+W10n virtualizes an arbitrary data store as a tree, in which two types of entities exist: **node** and **leaf**.
 A node can contain sub-nodes and leaves. A leaf holds data and is terminal. Both node and leaf can have attributes.
 
 A w10n URL has a form as follows
