@@ -29,7 +29,7 @@ and string `?queryString` indicates how the request should be fulfilled, such as
 Here, an HDF5 file from MillionSongSample dataset, called `TRABCAJ12903CDFCC2.h5` ([link](http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/?output=html&traverse)),
 is used to demonstrate the usage of w10n-sci API.
 
-Please consult [Taiga Quick Start](https://github.com/scifari/taiga/#quick-start) for use of a simple web GUI to browse w10n entities in a data store.
+Please consult [Taiga Quick Start](https://github.com/scifari/taiga/#quick-start) for a simple web GUI to browse w10n entities in a data store.
 
 ### 1.  Meta info  using `/`
 
@@ -76,7 +76,7 @@ http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/{se
 [link](http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/{segments_timbre,segments_pitches}/?output=json.indented)
 
 
-### 2. Data info using `[...]`
+### 2. Data info using `[selector]`
 
 #### 2.1 Single array
 
@@ -86,7 +86,7 @@ http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/{se
 http://host:port/path/store/.../array[selector]?output=format 
 ```
 
-in which `selector` is of these types: *empty* string, *range*, *list*, *tile* and *condition*,
+in which `selector` is of types: *empty* string, *range*, *list*, *tile* and *condition*,
 
 and `format` can be `json`, `json.indented`, `nc` (NetCDF), `be` (big-endian binary), or `le` (little-endian binary).
 
@@ -150,13 +150,13 @@ http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/seg
 http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/segments_timbre[segments_pitches in 0.2 0.4 0.6 0.8 1.0]?output=json
 ```
 
-[link](http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/segments_timbre[segments_pitches in 0.2 0.4 0.6 0.8 1.0]?output=json)
+[link](http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/segments_timbre[segments_pitches%20in%200.2%200.4%200.6%200.8%201.0]?output=json)
 
 ```
 http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/segments_timbre[segments_pitches ni 0.2 0.4 0.6 0.8 1.0]?output=json
 ```
 
-[link](http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/segments_timbre[segments_pitches ni 0.2 0.4 0.6 0.8 1.0]?output=json)
+[link](http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/segments_timbre[segments_pitches%20ni%200.2%200.4%200.6%200.8%201.0]?output=json)
 
 ```
 http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/segments_timbre[0<segments_timbre<=1,segments_pitches==1.0]?output=json
