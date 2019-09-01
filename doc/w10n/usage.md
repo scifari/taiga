@@ -1,8 +1,6 @@
 # How to Use Webification (w10n)
 
-***
-
-## File System Directory as Example
+### File System Directory as Example
 
 Scifari.org &copy; 2011 - 2019
 
@@ -17,7 +15,7 @@ A w10n URL has a form as follows
 https://host:port/path/store/identifier?queryString
 ```
 
-## File System Directory as W10n Store
+### File System Directory as W10n Store
 
 When a file system directory is webified as a date store, its sub-directories become w10n nodes and files become w10n leaves.
 
@@ -65,7 +63,7 @@ http://localhost:18080/data/Million*Sample/*ABC*12[89]*.h5/?output=json
 
 [link](http://localhost:18080/data/Million*Sample/*ABC*12[89]*.h5/?output=json.indented)
 
-## Further Reading
+### Further Reading
 
 Many different types of data stores can be virtualized through w10n.
-Please check [use w10n-sci](../doc/w10n-sci/usage.md) for one important example.
+Please check [use w10n-sci](../../doc/w10n-sci/usage.md) for one important example.
