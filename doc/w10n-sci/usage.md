@@ -203,4 +203,4 @@ http://127.0.0.1:18080/data/MillionSongSample/TRABCAJ12903CDFCC2.h5/analysis/{se
 
 ### Further Reading
 
-Please check [use w10n](../../doc/w10n/usage.md) for w10n of file system directory as a data store. 
+Please check [Use W10n](../../doc/w10n/usage.md) for w10n of file system directory as a data store. 
