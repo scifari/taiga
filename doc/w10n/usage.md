@@ -66,4 +66,4 @@ http://localhost:18080/data/Million*Sample/*ABC*12[89]*.h5/?output=json
 ### Further Reading
 
 Many different types of data stores can be virtualized through w10n.
-Please check [use w10n-sci](../../doc/w10n-sci/usage.md) for one important example.
+Please check [Use W10n-Sci](../../doc/w10n-sci/usage.md) for one important example.

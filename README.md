@@ -36,8 +36,8 @@ One can use it to quickly browse through w10n entities
 (directories and groups as nodes, files and arrays as leaves, etc.)
 
 Note: If you are interested in advanced use of w10n APIs,
-please check [Use W10n Store](./doc/w10n/usage.md) and
-[Use W10n-Sci Store](./doc/w10n-sci/usage.md).
+please check [Use W10n](./doc/w10n/usage.md) and
+[Use W10n-Sci](./doc/w10n-sci/usage.md).
 
 Shown below are screenshots that illustrate this simple GUI,
 using MillionSoundSample as an example. Please check [this doc](./data)
@@ -93,4 +93,4 @@ to display the tree in one level or all levels.
 
 Though this simple HTML-based GUI is convenient for exploring w10n entities,
 it does not demonstrate the full power of w10n. Please read 
-[Use W10n Store](./doc/w10n/usage.md) and [Use W10n-Sci Store](./doc/w10n-sci/usage.md) for advanced use.
+[Use W10n](./doc/w10n/usage.md) and [Use W10n-Sci](./doc/w10n-sci/usage.md) for advanced use.
